@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Twelve standalone experiments for native spatial CSS, HTML back portals, anchors, and USDZ models." />
+    <title>Spatial CSS · Portal test gallery</title>
+    <link rel="stylesheet" href="shared/site.css" />
+    <style>
+      .index-header {
+        margin: 26px 0 30px;
+        max-width: 880px;
+      }
+      .index-header h1 {
+        font-size: clamp(36px, 6vw, 66px);
+      }
+      .index-header p {
+        color: #bbd0df;
+        font-size: 18px;
+      }
+      .hero {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 24px;
+        align-items: center;
+        padding: 28px;
+        border: 1px solid #587d8a;
+        border-radius: 18px;
+        background: linear-gradient(115deg, #214943, #153048 75%);
+      }
+      .hero h2 {
+        margin: 6px 0 12px;
+        font-size: 29px;
+      }
+      .hero p {
+        max-width: 700px;
+        color: #c2dfdf;
+        margin: 0 0 18px;
+      }
+      .hero-number {
+        color: #9ac9be;
+        font-size: 100px;
+        font-weight: 750;
+        line-height: 1;
+        letter-spacing: -0.08em;
+      }
+      .index-section {
+        margin: 36px 0;
+      }
+      .index-section > h2 {
+        font-size: 23px;
+        margin-bottom: 18px;
+      }
+      .demo-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+      }
+      .demo-card {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        min-height: 265px;
+        padding: 22px;
+        border: 1px solid #304b60;
+        border-radius: 14px;
+        background: #122333;
+        color: #e4f0f7;
+        text-decoration: none;
+        transition:
+          border-color 160ms,
+          background 160ms;
+      }
+      .demo-card:hover {
+        border-color: #91cfbd;
+        background: #193143;
+      }
+      .card-number {
+        color: #99e2cd;
+        font:
+          13px ui-monospace,
+          monospace;
+        margin-bottom: 14px;
+      }
+      .demo-card h3 {
+        font-size: 20px;
+        line-height: 1.3;
+        margin: 0;
+        letter-spacing: -0.015em;
+      }
+      .demo-card p {
+        color: #b6cdda;
+        font-size: 14px;
+        margin: 12px 0;
+      }
+      .card-features {
+        color: #94b3c5;
+        font-size: 12px;
+        margin-top: auto;
+        padding-top: 6px;
+      }
+      .open-test {
+        color: #b9eddb;
+        font-size: 13px;
+        margin-top: 14px;
+      }
+      .index-note {
+        margin: 30px 0;
+        color: #aec7d7;
+        font-size: 14px;
+      }
+      @media (max-width: 940px) {
+        .demo-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+      @media (max-width: 600px) {
+        .demo-grid {
+          grid-template-columns: 1fr;
+        }
+        .hero {
+          grid-template-columns: 1fr;
+        }
+        .hero-number {
+          display: none;
+        }
+      }
+    </style>
+    <script type="module" src="shared/common.js"></script>
+  </head>
+  <body data-needs="portal models">
+    <main>
+      <div class="topline">
+        <span class="eyebrow">Spatial CSS / Native browser experiments</span>
+        <span>12 feature tests · 4 local USDZ assets</span>
+      </div>
+      <header class="index-header">
+        <h1>
+          HTML, with room
+          <br />
+          for another dimension.
+        </h1>
+        <p>
+          Explore the back portal implementation: real HTML planes, opaque 3D models, and CSS
+          anchors in one depth scene. Each page names its feature, gives a small control panel, and
+          describes what to look for. Drag stationary models to orbit them.
+        </p>
+      </header>
+      <p class="runtime" data-runtime role="status"></p>
+      <section class="hero" aria-label="Featured multi-asset test">
+        <div>
+          <span class="eyebrow">Featured / Multiple assets + shared depth</span>
+          <h2>A flight through HTML.</h2>
+          <p>
+            The realistic biplane loops in front of and behind HTML signs, with the teapot and
+            animated chameleon sharing the portal. Freeze a near or far pass to compare the
+            occlusion.
+          </p>
+          <a class="button" href="12-airshow.html">Open the portal airshow ↗</a>
+        </div>
+        <span class="hero-number" aria-hidden="true">12</span>
+      </section>
+      <section class="index-section">
+        <h2>Portal basics</h2>
+        <div class="demo-grid">
+          <a class="demo-card" href="01-back-portal.html">
+            <span class="card-number">01</span>
+            <h3>A window into HTML and a teapot</h3>
+            <p>Ordinary HTML and an opaque USDZ teapot share one scene behind the page.</p>
+            <span class="card-features">
+              spatial: portal · position: spatial-absolute · Glass vs. back context
+            </span>
+            <span class="open-test">Open test ↗</span>
+          </a>
+          <a class="demo-card" href="02-depth-occlusion.html">
+            <span class="card-number">02</span>
+            <h3>Shared depth: HTML in front and behind</h3>
+            <p>Move a teapot through two overlapping HTML planes without changing DOM order.</p>
+            <span class="card-features">
+              inset-front · HTML / mesh occlusion · Shared depth buffer
+            </span>
+            <span class="open-test">Open test ↗</span>
+          </a>
+          <a class="demo-card" href="03-hover-axes.html">
+            <span class="card-number">03</span>
+            <h3>Hover circles with X, Y, and Z spins</h3>
+            <p>
+              Each HTML tile circles around a fixed hover region and spins around a different axis.
+            </p>
+            <span class="card-features">
+              transform-style: preserve-3d · rotate3d() · Native hover
+            </span>
+            <span class="open-test">Open test ↗</span>
+          </a>
+          <a class="demo-card" href="09-native-input.html">
+            <span class="card-number">09</span>
+            <h3>Native HTML controls at different depths</h3>
+            <p>A form in the near plane updates a far HTML card beside the teapot.</p>
+            <span class="card-features">
+              Depth-aware picking · Native focus / activation · Retained HTML repaint
+            </span>
+            <span class="open-test">Open test ↗</span>
+          </a>
+          <a class="demo-card" href="11-portal-clipping.html">
+            <span class="card-number">11</span>
+            <h3>Clipping at the glass plane</h3>
+            <p>A tilted card and a teapot intersect the page’s glass plane.</p>
+            <span class="card-features">
+              Back boundary at z ≤ 0 · Tilted HTML planes · Mesh / aperture clipping
+            </span>
+            <span class="open-test">Open test ↗</span>
+          </a>
+        </div>
+      </section>
+      <section class="index-section">
+        <h2>Anchors and layout</h2>
+        <div class="demo-grid">
+          <a class="demo-card" href="04-model-anchors.html">
+            <span class="card-number">04</span>
+            <h3>Labels and rulers attached to a model</h3>
+            <p>
+              A teapot supplies three-dimensional root bounds to ordinary HTML labels and rulers.
+            </p>
+            <span class="card-features">
+              anchor-name / position-anchor · position-area: … / front · anchor-size(width / depth)
+            </span>
+            <span class="open-test">Open test ↗</span>
+          </a>
+          <a class="demo-card" href="05-anchor-context.html">
+            <span class="card-number">05</span>
+            <h3>Container axes compared with anchor axes</h3>
+            <p>The same HTML motion is labeled in two coordinate systems.</p>
+            <span class="card-features">
+              position-context: container · position-context: anchor · Transformed HTML anchors
+            </span>
+            <span class="open-test">Open test ↗</span>
+          </a>
+          <a class="demo-card" href="06-origins-and-depth.html">
+            <span class="card-number">06</span>
+            <h3>Origins, depth edges, and Z alignment</h3>
+            <p>
+              Match an HTML object origin, query a model’s depth edges, and align three cards within
+              a depth interval.
+            </p>
+            <span class="card-features">
+              offset-anchor / anchor-origin · anchor(front / back / origin) · z-align-self
+            </span>
+            <span class="open-test">Open test ↗</span>
+          </a>
+          <a class="demo-card" href="07-stage-fit.html">
+            <span class="card-number">07</span>
+            <h3>Stage fitting, automatic bounds, and resizing</h3>
+            <p>
+              Fit the same authored scene into a resizable portal, with either explicit or measured
+              stage bounds.
+            </p>
+            <span class="card-features">
+              portal-stage · portal-transform: auto · Automatic stage measurement
+            </span>
+            <span class="open-test">Open test ↗</span>
+          </a>
+          <a class="demo-card" href="08-nested-stages.html">
+            <span class="card-number">08</span>
+            <h3>A spinning nested stage that expands on hover</h3>
+            <p>
+              A nested portal spins three HTML satellites around a teapot inside the outer portal’s
+              scene.
+            </p>
+            <span class="card-features">
+              Nested spatial: portal · Shared outer scene · Hover expansion by 30 CSS cm
+            </span>
+            <span class="open-test">Open test ↗</span>
+          </a>
+        </div>
+      </section>
+      <section class="index-section">
+        <h2>Models and motion</h2>
+        <div class="demo-grid">
+          <a class="demo-card" href="10-usdz-animation.html">
+            <span class="card-number">10</span>
+            <h3>Animated USDZ models with HTML attachments</h3>
+            <p>
+              The chameleon, biplane, and robot bring their embedded animation into a mixed portal.
+            </p>
+            <span class="card-features">
+              USDZ scene loading · Embedded model animation · Root-bound HTML anchors
+            </span>
+            <span class="open-test">Open test ↗</span>
+          </a>
+          <a class="demo-card" href="12-airshow.html">
+            <span class="card-number">12</span>
+            <h3>Portal airshow: a flight through HTML</h3>
+            <p>
+              A biplane flies around a deep scene containing HTML signs, a teapot, and an animated
+              chameleon.
+            </p>
+            <span class="card-features">
+              Multiple USDZ assets · Animated 3D occlusion · Model anchors + HTML depth
+            </span>
+            <span class="open-test">Open test ↗</span>
+          </a>
+        </div>
+      </section>
+      <aside class="index-note">
+        <p>
+          <strong>Assets:</strong>
+          teapot, realistic biplane, animated chameleon, and robot. All files are copied locally;
+          there are no external scripts or asset downloads.
+        </p>
+        <p>
+          This suite targets the experimental browser’s back context and opaque models. Model labels
+          use root bounds. Motion starts paused when reduced motion is preferred.
+        </p>
+        <p>
+          <a href="README.md">Setup, feature checklist, and asset details</a>
+          ·
+          <a href="models/source-manifest.json">Asset manifest</a>
+        </p>
+      </aside>
+    </main>
+  </body>
+</html>

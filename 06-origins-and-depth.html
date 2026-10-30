@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Match an HTML object origin, query a model’s depth edges, and align three cards within a depth interval." />
+    <title>Test 06 · Origins, depth edges, and Z alignment · Spatial CSS</title>
+    <link rel="stylesheet" href="shared/site.css" />
+    <style data-test-css>
+      #portal {
+        portal-stage: 260px 520px / 650px 0px;
+      }
+      #origin-card {
+        anchor-name: --origin-card;
+        left: -250px;
+        top: -230px;
+        width: 270px;
+        height: 170px;
+        inset-front: 350px;
+        offset-anchor: 25% 75%;
+      }
+      .origin-dot {
+        position: spatial-absolute;
+        position-anchor: --origin-card;
+        position-context: anchor;
+        position-area: origin;
+        place-self: anchor-origin / anchor-origin;
+        offset-anchor: 50% 50%;
+        inset-back: 4px;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background: #ffb84f;
+        color: #382610;
+        text-align: center;
+        line-height: 30px;
+      }
+      #teapot {
+        anchor-name: --depth-object;
+        left: 400px;
+        top: -140px;
+        inset-front: 450px;
+        width: 320px;
+        height: 260px;
+        transform: rotateY(25deg);
+      }
+      #front-tag {
+        position-anchor: --depth-object;
+        position-area: top center;
+        bottom: 12px;
+        inset-front: calc(anchor(front) - 12px);
+      }
+      #back-tag {
+        position-anchor: --depth-object;
+        position-area: bottom center;
+        top: 12px;
+        inset-back: calc(anchor(back) - 12px);
+      }
+      #origin-query {
+        position: spatial-absolute;
+        left: anchor(--origin-card origin);
+        top: anchor(--origin-card origin);
+        inset-front: calc(anchor(--origin-card origin) - 6px);
+        width: 1px;
+        height: 1px;
+        visibility: hidden;
+      }
+      .depth-tile {
+        width: 160px;
+        height: 90px;
+        padding: 12px;
+        inset-front: 130px;
+        inset-back: 100px;
+      }
+      #z-start {
+        left: -310px;
+        top: 120px;
+        z-align-self: start;
+      }
+      #z-center {
+        top: 50px;
+        z-align-self: center;
+      }
+      #z-end {
+        left: 310px;
+        top: -20px;
+        z-align-self: end;
+      }
+    </style>
+    <script type="module" src="shared/common.js"></script>
+  </head>
+  <body data-test="06" data-needs="portal depth models anchors area context origin alignment orbit">
+    <main>
+      <nav class="topline">
+        <a href="index.html">← All spatial tests</a>
+        <span class="eyebrow">Test 06 / Anchors and layout</span>
+      </nav>
+      <h1>Origins, depth edges, and Z alignment</h1>
+      <p class="intro">
+        Match an HTML object origin, query a model’s depth edges, and align three cards within a
+        depth interval. Compare the amber origin dot on the green card with the model’s front/back
+        labels. Then inspect the three depth-alignment tiles.
+      </p>
+      <div class="features" aria-label="Features under test">
+        <span class="feature">stagemode: orbit</span>
+        <span class="feature">offset-anchor / anchor-origin</span>
+        <span class="feature">anchor(front / back / origin)</span>
+        <span class="feature">z-align-self</span>
+      </div>
+      <p class="runtime" data-runtime role="status"></p>
+      <p class="orbit-hint">Drag a stationary model to orbit it.</p>
+
+      <section class="portal" id="portal" aria-label="HTML origins and spatial depth alignment">
+        <h2 class="glass">Authored origins and containing-volume alignment</h2>
+        <article class="card" id="origin-card">
+          <h2>My origin is here</h2>
+          <p>offset-anchor: 25% 75%</p>
+          <small>The amber dot matches my origin.</small>
+        </article>
+        <span class="origin-dot" id="origin-dot" aria-label="Matched object origin">+</span>
+        <span id="origin-query"></span>
+        <model
+          id="teapot"
+          class="object"
+          src="models/teapot.usdz"
+          stagemode="orbit"
+          aria-label="Teapot"
+          data-name="Teapot"
+          title="Drag to orbit">
+          <span class="fallback">Loading teapot…</span>
+        </model>
+        <span class="anchor-label" id="front-tag">anchor(front)</span>
+        <span class="anchor-label" id="back-tag">anchor(back)</span>
+        <article class="card blue depth-tile" id="z-start">
+          <strong>Z: start</strong>
+          <p>Back of the interval</p>
+        </article>
+        <article class="card depth-tile" id="z-center">
+          <strong>Z: center</strong>
+          <p>Middle of the interval</p>
+        </article>
+        <article class="card amber depth-tile" id="z-end">
+          <strong>Z: end</strong>
+          <p>Front of the interval</p>
+        </article>
+      </section>
+
+      <aside class="expectation">
+        <strong>What to look for</strong>
+        <p>
+          The dot matches the card’s authored 25% / 75% origin. Start, center, and end place the
+          tiles at different depths between the same two insets.
+        </p>
+      </aside>
+      <details>
+        <summary>CSS under test</summary>
+        <pre><code data-css-source></code></pre>
+      </details>
+      <nav class="footer-nav">
+        <a href="05-anchor-context.html">← Previous test</a>
+        <a href="index.html">Test index</a>
+        <a href="07-stage-fit.html">Next test →</a>
+      </nav>
+    </main>
+  </body>
+</html>

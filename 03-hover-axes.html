@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Each HTML tile circles around a fixed hover region and spins around a different axis." />
+    <title>Test 03 · Hover circles with X, Y, and Z spins · Spatial CSS</title>
+    <link rel="stylesheet" href="shared/site.css" />
+    <style data-test-css>
+      .hover-region {
+        position: spatial-absolute;
+        transform-style: preserve-3d;
+        width: 240px;
+        height: 230px;
+        border: 1px dashed #8bafc5;
+        border-radius: 22px;
+        background: #ffffff0c;
+      }
+      #x-region {
+        left: -310px;
+        inset-front: 180px;
+        --axis: 1, 0, 0;
+      }
+      #y-region {
+        inset-front: 320px;
+        --axis: 0, 1, 0;
+      }
+      #z-region {
+        left: 310px;
+        inset-front: 460px;
+        --axis: 0, 0, 1;
+      }
+      .tile {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 150px;
+        height: 140px;
+        padding: 18px;
+        border: 1px solid #d8f4e6;
+        border-radius: 16px;
+        background: #dbf3e8;
+        color: #123b36;
+        box-shadow: 0 10px 20px #00000040;
+        display: grid;
+        place-content: center;
+        gap: 8px;
+        text-align: center;
+        transform: translate(-50%, -50%);
+      }
+      #y-region .tile {
+        background: #d9eaff;
+      }
+      #z-region .tile {
+        background: #ffe5b8;
+      }
+      .hover-region:is(:hover, :focus-within) .tile {
+        animation: circle-spin 4s linear infinite;
+      }
+      @keyframes circle-spin {
+        from {
+          transform: translate(-50%, -50%) rotate(0turn) translateX(22px) rotate(0turn)
+            rotate3d(var(--axis), 0turn);
+        }
+        to {
+          transform: translate(-50%, -50%) rotate(1turn) translateX(22px) rotate(-1turn)
+            rotate3d(var(--axis), 1turn);
+        }
+      }
+    </style>
+    <script type="module" src="shared/common.js"></script>
+  </head>
+  <body data-test="03" data-needs="portal depth">
+    <main>
+      <nav class="topline">
+        <a href="index.html">← All spatial tests</a>
+        <span class="eyebrow">Test 03 / Portal basics</span>
+      </nav>
+      <h1>Hover circles with X, Y, and Z spins</h1>
+      <p class="intro">
+        Each HTML tile circles around a fixed hover region and spins around a different axis. Hover
+        inside each dashed region, or tab to a tile. Move away to stop that tile.
+      </p>
+      <div class="features" aria-label="Features under test">
+        <span class="feature">transform-style: preserve-3d</span>
+        <span class="feature">rotate3d()</span>
+        <span class="feature">Native hover</span>
+      </div>
+      <p class="runtime" data-runtime role="status"></p>
+      <div class="controls" aria-label="Test controls">
+        <button type="button" data-motion>Pause motion</button>
+      </div>
+      <section class="portal" id="portal" aria-label="Hover cards spinning around three axes">
+        <h2 class="glass">The dashed regions stay still</h2>
+        <div class="hover-region" id="x-region">
+          <button class="tile" id="x-tile" type="button">
+            <strong>X axis</strong>
+            <small>End over end</small>
+          </button>
+        </div>
+        <div class="hover-region" id="y-region">
+          <button class="tile" id="y-tile" type="button">
+            <strong>Y axis</strong>
+            <small>Side to side</small>
+          </button>
+        </div>
+        <div class="hover-region" id="z-region">
+          <button class="tile" id="z-tile" type="button">
+            <strong>Z axis</strong>
+            <small>In the plane</small>
+          </button>
+        </div>
+        <p class="glass bottom">Real HTML hover and focus · no JavaScript hit coordinates</p>
+      </section>
+
+      <aside class="expectation">
+        <strong>What to look for</strong>
+        <p>
+          X turns end over end, Y turns side to side, and Z turns in its own plane. Each hover
+          region stays still.
+        </p>
+      </aside>
+      <details>
+        <summary>CSS under test</summary>
+        <pre><code data-css-source></code></pre>
+      </details>
+      <nav class="footer-nav">
+        <a href="02-depth-occlusion.html">← Previous test</a>
+        <a href="index.html">Test index</a>
+        <a href="04-model-anchors.html">Next test →</a>
+      </nav>
+    </main>
+  </body>
+</html>

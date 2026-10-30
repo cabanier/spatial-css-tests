@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Ordinary HTML and an opaque USDZ teapot share one scene behind the page." />
+    <title>Test 01 · A window into HTML and a teapot · Spatial CSS</title>
+    <link rel="stylesheet" href="shared/site.css" />
+    <style data-test-css>
+      #near {
+        left: -290px;
+        top: -15px;
+        inset-front: 110px;
+      }
+      #far {
+        left: 290px;
+        top: -15px;
+        inset-front: 510px;
+      }
+      #teapot {
+        top: -140px;
+        inset-front: 300px;
+        width: 320px;
+        height: 270px;
+      }
+    </style>
+    <script type="module" src="shared/common.js"></script>
+  </head>
+  <body data-test="01" data-needs="portal depth models orbit">
+    <main>
+      <nav class="topline">
+        <a href="index.html">← All spatial tests</a>
+        <span class="eyebrow">Test 01 / Portal basics</span>
+      </nav>
+      <h1>A window into HTML and a teapot</h1>
+      <p class="intro">
+        Ordinary HTML and an opaque USDZ teapot share one scene behind the page. Move your head
+        while looking at the cards. Compare them with the text on the glass.
+      </p>
+      <div class="features" aria-label="Features under test">
+        <span class="feature">stagemode: orbit</span>
+        <span class="feature">spatial: portal</span>
+        <span class="feature">position: spatial-absolute</span>
+        <span class="feature">Glass vs. back context</span>
+      </div>
+      <p class="runtime" data-runtime role="status"></p>
+      <p class="orbit-hint">Drag a stationary model to orbit it.</p>
+
+      <section class="portal" id="portal" aria-label="Basic HTML back portal">
+        <h2 class="glass">This heading is on the glass</h2>
+        <article class="card amber" id="near">
+          <h2>Near HTML</h2>
+          <p>110px behind the glass.</p>
+          <p>Real text, borders, and shadows.</p>
+        </article>
+        <model
+          id="teapot"
+          class="object"
+          src="models/teapot.usdz"
+          stagemode="orbit"
+          aria-label="Teapot"
+          data-name="Teapot"
+          title="Drag to orbit">
+          <span class="fallback">Loading teapot…</span>
+        </model>
+        <article class="card blue" id="far">
+          <h2>Far HTML</h2>
+          <p>510px behind the glass.</p>
+          <p>The model shares our depth buffer.</p>
+        </article>
+        <p class="glass bottom">One portal · HTML + USDZ · back context only</p>
+      </section>
+
+      <aside class="expectation">
+        <strong>What to look for</strong>
+        <p>
+          The cards and teapot show depth and parallax. The portal border and glass heading stay at
+          the page surface.
+        </p>
+      </aside>
+      <details>
+        <summary>CSS under test</summary>
+        <pre><code data-css-source></code></pre>
+      </details>
+      <nav class="footer-nav">
+        <a href="index.html">← Previous test</a>
+        <a href="index.html">Test index</a>
+        <a href="02-depth-occlusion.html">Next test →</a>
+      </nav>
+    </main>
+  </body>
+</html>

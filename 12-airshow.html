@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="A biplane flies around a deep scene containing HTML signs, a teapot, and an animated chameleon." />
+    <title>Test 12 · Portal airshow: a flight through HTML · Spatial CSS</title>
+    <link rel="stylesheet" href="shared/site.css" />
+    <style data-test-css>
+      #portal {
+        height: 620px;
+        portal-stage: 360px 660px / 1600px 0px;
+        background-color: #123246;
+      }
+      #main-sign {
+        inset-front: 530px;
+        top: -100px;
+        width: 450px;
+        height: 300px;
+        text-align: center;
+        background: #ffe4ad;
+        border: 2px solid #fff0ce;
+      }
+      #main-sign h2 {
+        font-size: 35px;
+        margin: 18px 0 12px;
+        letter-spacing: 0.05em;
+      }
+      #main-sign .stripe {
+        height: 9px;
+        border-radius: 3px;
+        background: repeating-linear-gradient(90deg, #295c67 0 28px, #74aaa8 28px 56px);
+      }
+      #rear-sign {
+        left: -400px;
+        top: 10px;
+        inset-front: 860px;
+        width: 240px;
+        height: 165px;
+      }
+      #right-sign {
+        left: 400px;
+        top: -170px;
+        inset-front: 860px;
+        width: 240px;
+        height: 165px;
+      }
+      #foreground {
+        top: 265px;
+        inset-front: 190px;
+        width: 620px;
+        height: 58px;
+        padding: 14px;
+        text-align: center;
+        border-radius: 10px;
+        background: #c4f1dc;
+      }
+      #flyer {
+        anchor-name: --flyer;
+        width: 290px;
+        height: 220px;
+        inset-front: 230px;
+        top: -140px;
+      }
+      #teapot {
+        anchor-name: --show-teapot;
+        left: -320px;
+        top: -100px;
+        inset-front: 650px;
+        width: 275px;
+        height: 220px;
+        transform: rotateY(-25deg);
+      }
+      #chameleon {
+        anchor-name: --show-chameleon;
+        left: 480px;
+        top: -80px;
+        inset-front: 700px;
+        width: 330px;
+        height: 260px;
+      }
+      .show-label {
+        position-area: top center / front;
+        bottom: 10px;
+        inset-back: 6px;
+      }
+      #plane-label {
+        position-anchor: --flyer;
+        width: 150px;
+      }
+      #teapot-label {
+        position-anchor: --show-teapot;
+      }
+      #chameleon-label {
+        position-anchor: --show-chameleon;
+      }
+    </style>
+    <script type="module" src="shared/common.js"></script>
+  </head>
+  <body data-test="12" data-needs="portal depth models anchors area orbit">
+    <main>
+      <nav class="topline">
+        <a href="index.html">← All spatial tests</a>
+        <span class="eyebrow">Test 12 / Models and motion</span>
+      </nav>
+      <h1>Portal airshow: a flight through HTML</h1>
+      <p class="intro">
+        A biplane flies around a deep scene containing HTML signs, a teapot, and an animated
+        chameleon. Watch a complete lap. Use Near pass and Far pass to freeze the biplane on
+        opposite sides of the central sign. Resume to fly again.
+      </p>
+      <div class="features" aria-label="Features under test">
+        <span class="feature">stagemode: orbit</span>
+        <span class="feature">Multiple USDZ assets</span>
+        <span class="feature">Animated 3D occlusion</span>
+        <span class="feature">Model anchors + HTML depth</span>
+      </div>
+      <p class="runtime" data-runtime role="status"></p>
+      <p class="orbit-hint">Drag a stationary model to orbit it.</p>
+      <div class="controls" aria-label="Test controls">
+        <button type="button" data-motion>Pause motion</button>
+        <button class="secondary" id="near-pass" type="button">Near pass</button>
+        <button class="secondary" id="far-pass" type="button">Far pass</button>
+        <button class="secondary" id="restart" type="button">Restart flight</button>
+        <label>
+          Flight speed
+          <input id="flight-speed" type="range" min="0.25" max="2" step="0.25" value="1" />
+          <output for="flight-speed">1×</output>
+        </label>
+        <label>
+          Flight phase
+          <input id="flight-phase" type="range" min="0" max="100" step="0.1" value="0" />
+          <output for="flight-phase">0%</output>
+        </label>
+      </div>
+      <section
+        class="portal"
+        id="portal"
+        aria-label="Large multi-asset portal airshow with a flying biplane and HTML signs">
+        <h2 class="glass">AIRSHOW · the biplane stays behind the glass</h2>
+        <article class="card blue" id="rear-sign">
+          <h2>Far hangar</h2>
+          <p>860px deep</p>
+          <p>The plane flies past both sides.</p>
+        </article>
+        <article class="card pink" id="right-sign">
+          <h2>Flight school</h2>
+          <p>860px deep</p>
+          <p>One shared depth scene.</p>
+        </article>
+        <article class="card amber" id="main-sign">
+          <div class="stripe"></div>
+          <h2>PORTAL AIRSHOW</h2>
+          <p>This opaque HTML sign sits 530px deep.</p>
+          <p>The plane flies in front, then behind.</p>
+        </article>
+        <model
+          id="teapot"
+          class="object"
+          src="models/teapot.usdz"
+          stagemode="orbit"
+          aria-label="Teapot"
+          data-name="Teapot"
+          title="Drag to orbit">
+          <span class="fallback">Loading teapot…</span>
+        </model>
+        <model
+          id="chameleon"
+          class="object"
+          src="models/chameleon_anim_mtl_variant.usdz"
+          stagemode="orbit"
+          aria-label="Animated chameleon"
+          data-name="Animated chameleon"
+          autoplay
+          loop
+          data-autoplay="true"
+          title="Drag to orbit">
+          <span class="fallback">Loading animated chameleon…</span>
+        </model>
+        <model
+          id="flyer"
+          class="object"
+          src="models/toy_biplane_realistic.usdz"
+          stagemode="none"
+          aria-label="Flying biplane"
+          data-name="Flying biplane"
+          autoplay
+          loop
+          data-autoplay="true">
+          <span class="fallback">Loading flying biplane…</span>
+        </model>
+        <span class="anchor-label show-label" id="plane-label">Biplane anchor</span>
+        <span class="anchor-label show-label" id="teapot-label">Teapot anchor</span>
+        <span class="anchor-label show-label" id="chameleon-label">Chameleon root</span>
+        <article class="card" id="foreground">
+          <strong>Near apron · 190px deep · ordinary HTML</strong>
+        </article>
+        <p class="glass bottom">Three native models + HTML at four depths · one portal</p>
+      </section>
+      <p class="readout" id="flight-readout" aria-live="off"></p>
+      <aside class="expectation">
+        <strong>What to look for</strong>
+        <p>
+          The biplane passes in front of the central HTML sign, then behind it on the return leg.
+          The teapot and chameleon share the scene and carry HTML labels.
+        </p>
+      </aside>
+      <details>
+        <summary>CSS under test</summary>
+        <pre><code data-css-source></code></pre>
+      </details>
+      <nav class="footer-nav">
+        <a href="11-portal-clipping.html">← Previous test</a>
+        <a href="index.html">Test index</a>
+        <a href="index.html">Next test →</a>
+      </nav>
+    </main>
+    <script type="module">
+      import {
+        $,
+        watchRange,
+        modelsReady,
+        setPaused,
+        isPaused,
+        onMotionChange,
+      } from './shared/common.js';
+      let phase = 0,
+        speed = 1,
+        previous = null,
+        frame = 0,
+        lastReadout = 0,
+        lastDrawnPhase = null;
+      const flyer = $('flyer');
+      function draw() {
+        if (lastDrawnPhase === phase) {
+          return;
+        }
+        lastDrawnPhase = phase;
+        const angle = phase * Math.PI * 2;
+        const x = 400 * Math.sin(angle);
+        const y = -105 + 140 * Math.cos(angle);
+        const depth = 660 - 430 * Math.cos(angle);
+        flyer.style.left = `${x}px`;
+        flyer.style.top = `${y}px`;
+        flyer.style.setProperty('inset-front', `${depth}px`);
+        flyer.style.transform = `rotateY(${90 + phase * 360}deg) rotateZ(${Math.sin(angle) * 14}deg)`;
+        window.demoState.flight = {
+          phase,
+          x,
+          y,
+          depth,
+          side: depth < 530 ? 'in front of the sign' : 'behind the sign',
+        };
+      }
+      function updateReadout() {
+        const flight = window.demoState.flight;
+        $('flight-readout').textContent =
+          `Biplane: ${flight.side} · root depth ${flight.depth.toFixed(0)} CSS px · ${isPaused() ? 'paused' : 'flying'}`;
+        $('flight-phase').value = phase * 100;
+        document.querySelector('output[for="flight-phase"]').value = `${(phase * 100).toFixed(1)}%`;
+      }
+      function setFlightPhase(value) {
+        phase = ((Number(value) % 1) + 1) % 1;
+        draw();
+        updateReadout();
+      }
+      window.demoApi.setFlightPhase = setFlightPhase;
+      $('near-pass').addEventListener('click', () => {
+        setPaused(true);
+        setFlightPhase(0);
+      });
+      $('far-pass').addEventListener('click', () => {
+        setPaused(true);
+        setFlightPhase(0.5);
+      });
+      $('restart').addEventListener('click', () => {
+        setFlightPhase(0);
+        for (const item of document.querySelectorAll('model[autoplay]')) {
+          if (item.duration > 0) {
+            item.currentTime = 0;
+          }
+        }
+        setPaused(false);
+      });
+      $('flight-phase').addEventListener('input', event => {
+        setPaused(true);
+        setFlightPhase(Number(event.target.value) / 100);
+      });
+      watchRange(
+        'flight-speed',
+        value => {
+          speed = value;
+        },
+        '×',
+      );
+      onMotionChange(() => {
+        previous = null;
+        if (window.demoState.flight) {
+          updateReadout();
+        }
+      });
+      function tick(time) {
+        if (previous !== null && !isPaused() && document.visibilityState === 'visible') {
+          phase = (phase + (Math.min((time - previous) / 1000, 0.1) * speed) / 18) % 1;
+        }
+        previous = time;
+        draw();
+        if (time - lastReadout > 120) {
+          updateReadout();
+          lastReadout = time;
+        }
+        frame = requestAnimationFrame(tick);
+      }
+      setFlightPhase(0);
+      frame = requestAnimationFrame(tick);
+      addEventListener('pagehide', () => cancelAnimationFrame(frame), {once: true});
+    </script>
+  </body>
+</html>

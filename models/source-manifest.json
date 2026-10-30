@@ -1,0 +1,25 @@
+{
+  "sourceDirectory": "/home/cabanier/model-polyfill/public/models",
+  "files": [
+    {
+      "file": "teapot.usdz",
+      "bytes": 9021664,
+      "sha256": "44bb6d1dfe0e3e890f7b8f12a177b4ae9da385bc13fcec25819fc23eaebc055c"
+    },
+    {
+      "file": "toy_biplane_realistic.usdz",
+      "bytes": 11467255,
+      "sha256": "293805686d7ac7364060ea8d0a295a60fe435a566a282d876c3e5de7b60e26dc"
+    },
+    {
+      "file": "chameleon_anim_mtl_variant.usdz",
+      "bytes": 15622506,
+      "sha256": "864489922c6961d2d627c2d41f50f05590fa7ad53ed0a5e6a34fa92aa91c9ddf"
+    },
+    {
+      "file": "robot.usdz",
+      "bytes": 12332482,
+      "sha256": "e2795e5ee79560e6a81b2612abb0289fb9055e99cd54047212ac8ccc6305d04a"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+[1/12] Checking 01-back-portal.html
+PASS: 01-back-portal.html — native assets, CSS, and feature checks
+[2/12] Checking 02-depth-occlusion.html
+PASS: 02-depth-occlusion.html — native assets, CSS, and feature checks
+[3/12] Checking 03-hover-axes.html
+PASS: 03-hover-axes.html — native assets, CSS, and feature checks
+[4/12] Checking 04-model-anchors.html
+PASS: 04-model-anchors.html — native assets, CSS, and feature checks
+[5/12] Checking 05-anchor-context.html
+PASS: 05-anchor-context.html — native assets, CSS, and feature checks
+[6/12] Checking 06-origins-and-depth.html
+PASS: 06-origins-and-depth.html — native assets, CSS, and feature checks
+[7/12] Checking 07-stage-fit.html
+PASS: 07-stage-fit.html — native assets, CSS, and feature checks
+[8/12] Checking 08-nested-stages.html
+PASS: 08-nested-stages.html — native assets, CSS, and feature checks
+[9/12] Checking 09-native-input.html
+PASS: 09-native-input.html — native assets, CSS, and feature checks
+[10/12] Checking 10-usdz-animation.html
+PASS: 10-usdz-animation.html — native assets, CSS, and feature checks
+[11/12] Checking 11-portal-clipping.html
+PASS: 11-portal-clipping.html — native assets, CSS, and feature checks
+[12/12] Checking 12-airshow.html
+PASS: 12-airshow.html — native assets, CSS, and feature checks
+PASS: 12 native demo pages checked; index left open.

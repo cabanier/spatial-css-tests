@@ -1,0 +1,69 @@
+Spatial CSS demos: http://127.0.0.1:18881/index.html
+127.0.0.1 - - [29/Oct/2026 19:00:36] "GET /index.html HTTP/1.1" 200 -
+127.0.0.1 - - [29/Oct/2026 19:00:36] "GET /models/teapot.usdz HTTP/1.1" 200 -
+----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 59000)
+Traceback (most recent call last):
+  File "/usr/local/fbcode/platform010/lib/python3.12/socketserver.py", line 697, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/local/fbcode/platform010/lib/python3.12/socketserver.py", line 362, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/local/fbcode/platform010/lib/python3.12/http/server.py", line 676, in __init__
+    super().__init__(*args, **kwargs)
+  File "/usr/local/fbcode/platform010/lib/python3.12/socketserver.py", line 766, in __init__
+    self.handle()
+  File "/usr/local/fbcode/platform010/lib/python3.12/http/server.py", line 440, in handle
+    self.handle_one_request()
+  File "/usr/local/fbcode/platform010/lib/python3.12/http/server.py", line 428, in handle_one_request
+    method()
+  File "/usr/local/fbcode/platform010/lib/python3.12/http/server.py", line 683, in do_GET
+    self.copyfile(f, self.wfile)
+  File "/usr/local/fbcode/platform010/lib/python3.12/http/server.py", line 882, in copyfile
+    shutil.copyfileobj(source, outputfile)
+  File "/usr/local/fbcode/platform010/lib/python3.12/shutil.py", line 204, in copyfileobj
+    fdst_write(buf)
+  File "/usr/local/fbcode/platform010/lib/python3.12/socketserver.py", line 845, in write
+    self._sock.sendall(b)
+ConnectionResetError: [Errno 104] Connection reset by peer
+----------------------------------------
+127.0.0.1 - - [29/Oct/2026 19:03:03] "GET /01-back-portal.html HTTP/1.1" 200 -
+127.0.0.1 - - [29/Oct/2026 19:03:03] "GET /shared/site.css HTTP/1.1" 200 -
+127.0.0.1 - - [29/Oct/2026 19:03:03] "GET /shared/common.js HTTP/1.1" 200 -
+127.0.0.1 - - [29/Oct/2026 19:03:03] "GET /models/teapot.usdz HTTP/1.1" 200 -
+127.0.0.1 - - [29/Oct/2026 19:03:03] code 404, message File not found
+127.0.0.1 - - [29/Oct/2026 19:03:03] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [29/Oct/2026 19:03:12] "GET /02-depth-occlusion.html HTTP/1.1" 200 -
+127.0.0.1 - - [29/Oct/2026 19:03:14] "GET /03-hover-axes.html HTTP/1.1" 200 -
+127.0.0.1 - - [29/Oct/2026 19:03:23] "GET /04-model-anchors.html HTTP/1.1" 200 -
+127.0.0.1 - - [29/Oct/2026 19:03:27] "GET /05-anchor-context.html HTTP/1.1" 200 -
+127.0.0.1 - - [29/Oct/2026 19:03:30] "GET /06-origins-and-depth.html HTTP/1.1" 200 -
+127.0.0.1 - - [29/Oct/2026 19:03:33] "GET /07-stage-fit.html HTTP/1.1" 200 -
+127.0.0.1 - - [29/Oct/2026 19:03:36] "GET /08-nested-stages.html HTTP/1.1" 200 -
+127.0.0.1 - - [29/Oct/2026 19:03:42] "GET /09-native-input.html HTTP/1.1" 200 -
+127.0.0.1 - - [29/Oct/2026 19:03:43] "GET /shared/site.css HTTP/1.1" 304 -
+127.0.0.1 - - [29/Oct/2026 19:03:43] "GET /shared/common.js HTTP/1.1" 304 -
+127.0.0.1 - - [29/Oct/2026 19:03:46] "GET /10-usdz-animation.html HTTP/1.1" 200 -
+127.0.0.1 - - [29/Oct/2026 19:03:46] "GET /models/chameleon_anim_mtl_variant.usdz HTTP/1.1" 200 -
+127.0.0.1 - - [29/Oct/2026 19:03:47] "GET /models/toy_biplane_realistic.usdz HTTP/1.1" 200 -
+127.0.0.1 - - [29/Oct/2026 19:03:47] "GET /models/robot.usdz HTTP/1.1" 200 -
+127.0.0.1 - - [29/Oct/2026 19:04:03] "GET /11-portal-clipping.html HTTP/1.1" 200 -
+127.0.0.1 - - [29/Oct/2026 19:04:05] "GET /12-airshow.html HTTP/1.1" 200 -
+127.0.0.1 - - [29/Oct/2026 19:04:14] "GET /index.html HTTP/1.1" 200 -
+127.0.0.1 - - [29/Oct/2026 19:15:01] "GET /shared/site.css HTTP/1.1" 304 -
+127.0.0.1 - - [29/Oct/2026 19:15:01] code 404, message File not found
+127.0.0.1 - - [29/Oct/2026 19:15:01] "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 -
+127.0.0.1 - - [29/Oct/2026 19:29:10] "GET /index.html HTTP/1.1" 200 -
+127.0.0.1 - - [29/Oct/2026 19:29:10] "GET /01-back-portal.html HTTP/1.1" 200 -
+127.0.0.1 - - [29/Oct/2026 19:29:10] "GET /02-depth-occlusion.html HTTP/1.1" 200 -
+127.0.0.1 - - [29/Oct/2026 19:29:10] "GET /03-hover-axes.html HTTP/1.1" 200 -
+127.0.0.1 - - [29/Oct/2026 19:29:10] "GET /04-model-anchors.html HTTP/1.1" 200 -
+127.0.0.1 - - [29/Oct/2026 19:29:10] "GET /05-anchor-context.html HTTP/1.1" 200 -
+127.0.0.1 - - [29/Oct/2026 19:29:10] "GET /06-origins-and-depth.html HTTP/1.1" 200 -
+127.0.0.1 - - [29/Oct/2026 19:29:10] "GET /07-stage-fit.html HTTP/1.1" 200 -
+127.0.0.1 - - [29/Oct/2026 19:29:10] "GET /08-nested-stages.html HTTP/1.1" 200 -
+127.0.0.1 - - [29/Oct/2026 19:29:10] "GET /09-native-input.html HTTP/1.1" 200 -
+127.0.0.1 - - [29/Oct/2026 19:29:10] "GET /10-usdz-animation.html HTTP/1.1" 200 -
+127.0.0.1 - - [29/Oct/2026 19:29:10] "GET /11-portal-clipping.html HTTP/1.1" 200 -
+127.0.0.1 - - [29/Oct/2026 19:29:10] "GET /12-airshow.html HTTP/1.1" 200 -
+127.0.0.1 - - [29/Oct/2026 19:29:10] "GET /shared/common.js HTTP/1.1" 200 -
+127.0.0.1 - - [29/Oct/2026 19:29:10] "GET /shared/site.css HTTP/1.1" 200 -

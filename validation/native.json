@@ -1,0 +1,1143 @@
+{
+  "target": "232",
+  "device": "127.0.0.1:15561",
+  "pages": [
+    {
+      "file": "01-back-portal.html",
+      "title": "A window into HTML and a teapot",
+      "initial": {
+        "features": {
+          "portal": true,
+          "depth": true,
+          "stage": true,
+          "anchors": true,
+          "area": true,
+          "context": true,
+          "origin": true,
+          "size": true,
+          "alignment": true,
+          "models": true
+        },
+        "assets": {
+          "teapot": {
+            "name": "Teapot",
+            "source": "models/teapot.usdz",
+            "state": "ready",
+            "duration": 0,
+            "bounds": {
+              "center": {
+                "x": 0.021192893385887146,
+                "y": 0.1662251502275467,
+                "z": -1.4901161193847656e-08
+              },
+              "extents": {
+                "x": 0.3338635563850403,
+                "y": 0.3328058421611786,
+                "z": 0.24489863216876984
+              }
+            }
+          }
+        },
+        "errors": [],
+        "motionPaused": false
+      },
+      "styles": {
+        "visible": "visible",
+        "models": [
+          {
+            "id": "teapot",
+            "position": "spatial-absolute",
+            "duration": 0,
+            "paused": true
+          }
+        ],
+        "labels": [],
+        "portal": [
+          {
+            "id": "portal",
+            "spatial": "portal",
+            "stage": "260px 520px 260px 520px / 1000px 0px",
+            "fit": "auto"
+          }
+        ]
+      },
+      "capture": "01-back-portal.png",
+      "finalErrors": [],
+      "result": "PASS"
+    },
+    {
+      "file": "02-depth-occlusion.html",
+      "title": "Shared depth: HTML in front and behind",
+      "initial": {
+        "features": {
+          "portal": true,
+          "depth": true,
+          "stage": true,
+          "anchors": true,
+          "area": true,
+          "context": true,
+          "origin": true,
+          "size": true,
+          "alignment": true,
+          "models": true
+        },
+        "assets": {
+          "teapot": {
+            "name": "Teapot",
+            "source": "models/teapot.usdz",
+            "state": "ready",
+            "duration": 0,
+            "bounds": {
+              "center": {
+                "x": 0.021192893385887146,
+                "y": 0.1662251502275467,
+                "z": -1.4901161193847656e-08
+              },
+              "extents": {
+                "x": 0.3338635563850403,
+                "y": 0.3328058421611786,
+                "z": 0.24489863216876984
+              }
+            }
+          }
+        },
+        "errors": [],
+        "motionPaused": false
+      },
+      "styles": {
+        "visible": "visible",
+        "models": [
+          {
+            "id": "teapot",
+            "position": "spatial-absolute",
+            "duration": 0,
+            "paused": true
+          }
+        ],
+        "labels": [],
+        "portal": [
+          {
+            "id": "portal",
+            "spatial": "portal",
+            "stage": "260px 520px 260px 520px / 1000px 0px",
+            "fit": "auto"
+          }
+        ]
+      },
+      "capture": "02-depth-occlusion.png",
+      "finalErrors": [],
+      "result": "PASS"
+    },
+    {
+      "file": "03-hover-axes.html",
+      "title": "Hover circles with X, Y, and Z spins",
+      "initial": {
+        "features": {
+          "portal": true,
+          "depth": true,
+          "stage": true,
+          "anchors": true,
+          "area": true,
+          "context": true,
+          "origin": true,
+          "size": true,
+          "alignment": true,
+          "models": true
+        },
+        "assets": {
+          "teapot": {
+            "name": "Teapot",
+            "source": "models/teapot.usdz",
+            "state": "ready",
+            "duration": 0,
+            "bounds": {
+              "center": {
+                "x": 0.021192893385887146,
+                "y": 0.1662251502275467,
+                "z": -1.4901161193847656e-08
+              },
+              "extents": {
+                "x": 0.3338635563850403,
+                "y": 0.3328058421611786,
+                "z": 0.24489863216876984
+              }
+            }
+          }
+        },
+        "errors": [],
+        "motionPaused": false
+      },
+      "styles": {
+        "visible": "visible",
+        "models": [
+          {
+            "id": "teapot",
+            "position": "spatial-absolute",
+            "duration": 0,
+            "paused": true
+          }
+        ],
+        "labels": [],
+        "portal": [
+          {
+            "id": "portal",
+            "spatial": "portal",
+            "stage": "260px 520px 260px 520px / 1000px 0px",
+            "fit": "auto"
+          }
+        ]
+      },
+      "capture": "03-hover-axes.png",
+      "hover": [
+        {
+          "axis": "x",
+          "point": {
+            "x": 318,
+            "y": 402.59375
+          },
+          "hover": true,
+          "running": true,
+          "transform": "matrix3d(1, 0, 0, 0, 0, 0.722376, 0.6915, 0, 0, -0.6915, 0.722376, 0, -59.1077, -54.787, 0, 1)"
+        },
+        {
+          "axis": "y",
+          "point": {
+            "x": 518,
+            "y": 452.59375
+          },
+          "hover": true,
+          "running": true,
+          "transform": "matrix3d(0.737301, 0, -0.675564, 0, 0, 1, 0, 0, 0.675564, 0, 0.737301, 0, -58.7794, -55.1376, 0, 1)"
+        },
+        {
+          "axis": "z",
+          "point": {
+            "x": 688,
+            "y": 482.59375
+          },
+          "hover": true,
+          "running": true,
+          "transform": "matrix(-0.67568, 0.737195, -0.737195, -0.67568, -89.865, -53.7817)"
+        }
+      ],
+      "finalErrors": [],
+      "result": "PASS"
+    },
+    {
+      "file": "04-model-anchors.html",
+      "title": "Labels and rulers attached to a model",
+      "initial": {
+        "features": {
+          "portal": true,
+          "depth": true,
+          "stage": true,
+          "anchors": true,
+          "area": true,
+          "context": true,
+          "origin": true,
+          "size": true,
+          "alignment": true,
+          "models": true
+        },
+        "assets": {
+          "teapot": {
+            "name": "Teapot",
+            "source": "models/teapot.usdz",
+            "state": "ready",
+            "duration": 0,
+            "bounds": {
+              "center": {
+                "x": 0.021192893385887146,
+                "y": 0.1662251502275467,
+                "z": -1.4901161193847656e-08
+              },
+              "extents": {
+                "x": 0.3338635563850403,
+                "y": 0.3328058421611786,
+                "z": 0.24489863216876984
+              }
+            }
+          }
+        },
+        "errors": [],
+        "motionPaused": false
+      },
+      "styles": {
+        "visible": "visible",
+        "models": [
+          {
+            "id": "teapot",
+            "position": "spatial-absolute",
+            "duration": 0,
+            "paused": true
+          }
+        ],
+        "labels": [
+          {
+            "id": "model-label",
+            "position": "spatial-absolute",
+            "context": "container",
+            "area": "center top / front"
+          },
+          {
+            "id": "width-label",
+            "position": "spatial-absolute",
+            "context": "container",
+            "area": "center bottom / front"
+          },
+          {
+            "id": "depth-label",
+            "position": "spatial-absolute",
+            "context": "container",
+            "area": "center bottom / front"
+          }
+        ],
+        "portal": [
+          {
+            "id": "portal",
+            "spatial": "portal",
+            "stage": "260px 520px 260px 520px / 1000px 0px",
+            "fit": "auto"
+          }
+        ]
+      },
+      "capture": "04-model-anchors.png",
+      "entityScale": {
+        "before": {
+          "width": 300.953,
+          "depth": 220.75
+        },
+        "after": {
+          "width": 361.141,
+          "depth": 264.906
+        }
+      },
+      "finalErrors": [],
+      "result": "PASS"
+    },
+    {
+      "file": "05-anchor-context.html",
+      "title": "Container axes compared with anchor axes",
+      "initial": {
+        "features": {
+          "portal": true,
+          "depth": true,
+          "stage": true,
+          "anchors": true,
+          "area": true,
+          "context": true,
+          "origin": true,
+          "size": true,
+          "alignment": true,
+          "models": true
+        },
+        "assets": {
+          "teapot-left": {
+            "name": "Teapot",
+            "source": "models/teapot.usdz",
+            "state": "ready",
+            "duration": 0,
+            "bounds": {
+              "center": {
+                "x": 0.021192893385887146,
+                "y": 0.1662251502275467,
+                "z": -1.4901161193847656e-08
+              },
+              "extents": {
+                "x": 0.3338635563850403,
+                "y": 0.3328058421611786,
+                "z": 0.24489863216876984
+              }
+            }
+          },
+          "teapot-right": {
+            "name": "Teapot",
+            "source": "models/teapot.usdz",
+            "state": "ready",
+            "duration": 0,
+            "bounds": {
+              "center": {
+                "x": 0.021192893385887146,
+                "y": 0.1662251502275467,
+                "z": -1.4901161193847656e-08
+              },
+              "extents": {
+                "x": 0.3338635563850403,
+                "y": 0.3328058421611786,
+                "z": 0.24489863216876984
+              }
+            }
+          }
+        },
+        "errors": [],
+        "motionPaused": false
+      },
+      "styles": {
+        "visible": "visible",
+        "models": [
+          {
+            "id": "teapot-left",
+            "position": "spatial-absolute",
+            "duration": 0,
+            "paused": true
+          },
+          {
+            "id": "teapot-right",
+            "position": "spatial-absolute",
+            "duration": 0,
+            "paused": true
+          }
+        ],
+        "labels": [
+          {
+            "id": "container-label",
+            "position": "spatial-absolute",
+            "context": "container",
+            "area": "center top / front"
+          },
+          {
+            "id": "anchor-label",
+            "position": "spatial-absolute",
+            "context": "anchor",
+            "area": "center top / front"
+          }
+        ],
+        "portal": [
+          {
+            "id": "container-portal",
+            "spatial": "portal",
+            "stage": "180px 300px 180px 300px / 650px 0px",
+            "fit": "auto"
+          },
+          {
+            "id": "anchor-portal",
+            "spatial": "portal",
+            "stage": "180px 300px 180px 300px / 650px 0px",
+            "fit": "auto"
+          }
+        ]
+      },
+      "context": {
+        "container": "container",
+        "anchor": "anchor",
+        "animations": 1
+      },
+      "capture": "05-anchor-context.png",
+      "finalErrors": [],
+      "result": "PASS"
+    },
+    {
+      "file": "06-origins-and-depth.html",
+      "title": "Origins, depth edges, and Z alignment",
+      "initial": {
+        "features": {
+          "portal": true,
+          "depth": true,
+          "stage": true,
+          "anchors": true,
+          "area": true,
+          "context": true,
+          "origin": true,
+          "size": true,
+          "alignment": true,
+          "models": true
+        },
+        "assets": {
+          "teapot": {
+            "name": "Teapot",
+            "source": "models/teapot.usdz",
+            "state": "ready",
+            "duration": 0,
+            "bounds": {
+              "center": {
+                "x": 0.021192893385887146,
+                "y": 0.1662251502275467,
+                "z": -1.4901161193847656e-08
+              },
+              "extents": {
+                "x": 0.3338635563850403,
+                "y": 0.3328058421611786,
+                "z": 0.24489863216876984
+              }
+            }
+          }
+        },
+        "errors": [],
+        "motionPaused": false
+      },
+      "styles": {
+        "visible": "visible",
+        "models": [
+          {
+            "id": "teapot",
+            "position": "spatial-absolute",
+            "duration": 0,
+            "paused": true
+          }
+        ],
+        "labels": [
+          {
+            "id": "front-tag",
+            "position": "spatial-absolute",
+            "context": "container",
+            "area": "center top"
+          },
+          {
+            "id": "back-tag",
+            "position": "spatial-absolute",
+            "context": "container",
+            "area": "center bottom"
+          }
+        ],
+        "portal": [
+          {
+            "id": "portal",
+            "spatial": "portal",
+            "stage": "260px 520px 260px 520px / 1000px 0px",
+            "fit": "auto"
+          }
+        ]
+      },
+      "capture": "06-origins-and-depth.png",
+      "finalErrors": [],
+      "result": "PASS"
+    },
+    {
+      "file": "07-stage-fit.html",
+      "title": "Stage fitting, automatic bounds, and resizing",
+      "initial": {
+        "features": {
+          "portal": true,
+          "depth": true,
+          "stage": true,
+          "anchors": true,
+          "area": true,
+          "context": true,
+          "origin": true,
+          "size": true,
+          "alignment": true,
+          "models": true
+        },
+        "assets": {
+          "left-pot": {
+            "name": "Teapot",
+            "source": "models/teapot.usdz",
+            "state": "ready",
+            "duration": 0,
+            "bounds": {
+              "center": {
+                "x": 0.021192893385887146,
+                "y": 0.1662251502275467,
+                "z": -1.4901161193847656e-08
+              },
+              "extents": {
+                "x": 0.3338635563850403,
+                "y": 0.3328058421611786,
+                "z": 0.24489863216876984
+              }
+            }
+          },
+          "right-pot": {
+            "name": "Teapot",
+            "source": "models/teapot.usdz",
+            "state": "ready",
+            "duration": 0,
+            "bounds": {
+              "center": {
+                "x": 0.021192893385887146,
+                "y": 0.1662251502275467,
+                "z": -1.4901161193847656e-08
+              },
+              "extents": {
+                "x": 0.3338635563850403,
+                "y": 0.3328058421611786,
+                "z": 0.24489863216876984
+              }
+            }
+          }
+        },
+        "errors": [],
+        "motionPaused": false
+      },
+      "styles": {
+        "visible": "visible",
+        "models": [
+          {
+            "id": "left-pot",
+            "position": "spatial-absolute",
+            "duration": 0,
+            "paused": true
+          },
+          {
+            "id": "right-pot",
+            "position": "spatial-absolute",
+            "duration": 0,
+            "paused": true
+          }
+        ],
+        "labels": [],
+        "portal": [
+          {
+            "id": "portal",
+            "spatial": "portal",
+            "stage": "260px 520px 260px 520px / 1000px 0px",
+            "fit": "auto"
+          }
+        ]
+      },
+      "capture": "07-stage-fit.png",
+      "autoStage": "auto auto auto auto / auto 0px",
+      "finalErrors": [],
+      "result": "PASS"
+    },
+    {
+      "file": "08-nested-stages.html",
+      "title": "A spinning nested stage that expands on hover",
+      "initial": {
+        "features": {
+          "portal": true,
+          "depth": true,
+          "stage": true,
+          "anchors": true,
+          "area": true,
+          "context": true,
+          "origin": true,
+          "size": true,
+          "alignment": true,
+          "models": true
+        },
+        "assets": {
+          "teapot": {
+            "name": "Teapot",
+            "source": "models/teapot.usdz",
+            "state": "ready",
+            "duration": 0,
+            "bounds": {
+              "center": {
+                "x": 0.021192893385887146,
+                "y": 0.1662251502275467,
+                "z": -1.4901161193847656e-08
+              },
+              "extents": {
+                "x": 0.3338635563850403,
+                "y": 0.3328058421611786,
+                "z": 0.24489863216876984
+              }
+            }
+          }
+        },
+        "errors": [],
+        "motionPaused": false
+      },
+      "styles": {
+        "visible": "visible",
+        "models": [
+          {
+            "id": "teapot",
+            "position": "spatial-absolute",
+            "duration": 0,
+            "paused": true
+          }
+        ],
+        "labels": [],
+        "portal": [
+          {
+            "id": "portal",
+            "spatial": "portal",
+            "stage": "320px 620px 320px 620px / 1600px 0px",
+            "fit": "auto"
+          }
+        ]
+      },
+      "capture": "08-nested-stages.png",
+      "expansion": {
+        "hover": true,
+        "transform": "matrix(1, 0, 0, 1, -1133.86, 0)"
+      },
+      "finalErrors": [],
+      "result": "PASS"
+    },
+    {
+      "file": "09-native-input.html",
+      "title": "Native HTML controls at different depths",
+      "initial": {
+        "features": {
+          "portal": true,
+          "depth": true,
+          "stage": true,
+          "anchors": true,
+          "area": true,
+          "context": true,
+          "origin": true,
+          "size": true,
+          "alignment": true,
+          "models": true
+        },
+        "assets": {
+          "teapot": {
+            "name": "Teapot",
+            "source": "models/teapot.usdz",
+            "state": "ready",
+            "duration": 0,
+            "bounds": {
+              "center": {
+                "x": 0.021192893385887146,
+                "y": 0.1662251502275467,
+                "z": -1.4901161193847656e-08
+              },
+              "extents": {
+                "x": 0.3338635563850403,
+                "y": 0.3328058421611786,
+                "z": 0.24489863216876984
+              }
+            }
+          }
+        },
+        "errors": [],
+        "motionPaused": false
+      },
+      "styles": {
+        "visible": "visible",
+        "models": [
+          {
+            "id": "teapot",
+            "position": "spatial-absolute",
+            "duration": 0,
+            "paused": true
+          }
+        ],
+        "labels": [],
+        "portal": [
+          {
+            "id": "portal",
+            "spatial": "portal",
+            "stage": "260px 520px 260px 520px / 1000px 0px",
+            "fit": "auto"
+          }
+        ]
+      },
+      "capture": "09-native-input.png",
+      "input": {
+        "click": {
+          "target": "send",
+          "trusted": true,
+          "x": 0,
+          "y": 0
+        },
+        "text": "Hello from the portal",
+        "result": "Messages sent: 1. Native form submission updated the far card."
+      },
+      "finalErrors": [],
+      "result": "PASS"
+    },
+    {
+      "file": "10-usdz-animation.html",
+      "title": "Animated USDZ models with HTML attachments",
+      "initial": {
+        "features": {
+          "portal": true,
+          "depth": true,
+          "stage": true,
+          "anchors": true,
+          "area": true,
+          "context": true,
+          "origin": true,
+          "size": true,
+          "alignment": true,
+          "models": true
+        },
+        "assets": {
+          "chameleon": {
+            "name": "Animated chameleon",
+            "source": "models/chameleon_anim_mtl_variant.usdz",
+            "state": "ready",
+            "duration": 20.233333587646484,
+            "bounds": {
+              "center": {
+                "x": 0.050795719027519226,
+                "y": 0.020393669605255127,
+                "z": -0.08789628744125366
+              },
+              "extents": {
+                "x": 0.3921293020248413,
+                "y": 0.18023553490638733,
+                "z": 0.5877733826637268
+              }
+            }
+          },
+          "biplane": {
+            "name": "Animated biplane",
+            "source": "models/toy_biplane_realistic.usdz",
+            "state": "ready",
+            "duration": 1,
+            "bounds": {
+              "center": {
+                "x": -0.0004076659679412842,
+                "y": 0.07974861562252045,
+                "z": -0.001344628632068634
+              },
+              "extents": {
+                "x": 0.25421810150146484,
+                "y": 0.10948612540960312,
+                "z": 0.2367212474346161
+              }
+            }
+          },
+          "robot": {
+            "name": "Animated robot",
+            "source": "models/robot.usdz",
+            "state": "ready",
+            "duration": 2.4666666984558105,
+            "bounds": {
+              "center": {
+                "x": 1.7002224922180176e-05,
+                "y": 0.13657496869564056,
+                "z": -0.013835705816745758
+              },
+              "extents": {
+                "x": 0.14261800050735474,
+                "y": 0.2737584114074707,
+                "z": 0.17474451661109924
+              }
+            }
+          }
+        },
+        "errors": [],
+        "motionPaused": false
+      },
+      "styles": {
+        "visible": "visible",
+        "models": [
+          {
+            "id": "chameleon",
+            "position": "spatial-absolute",
+            "duration": 20.233333587646484,
+            "paused": false
+          },
+          {
+            "id": "biplane",
+            "position": "spatial-absolute",
+            "duration": 1,
+            "paused": false
+          },
+          {
+            "id": "robot",
+            "position": "spatial-absolute",
+            "duration": 2.4666666984558105,
+            "paused": false
+          }
+        ],
+        "labels": [
+          {
+            "id": "chameleon-caption",
+            "position": "spatial-absolute",
+            "context": "container",
+            "area": "center bottom / front"
+          },
+          {
+            "id": "biplane-caption",
+            "position": "spatial-absolute",
+            "context": "container",
+            "area": "center bottom / front"
+          },
+          {
+            "id": "robot-caption",
+            "position": "spatial-absolute",
+            "context": "container",
+            "area": "center bottom / front"
+          }
+        ],
+        "portal": [
+          {
+            "id": "portal",
+            "spatial": "portal",
+            "stage": "280px 620px 280px 620px / 1200px 0px",
+            "fit": "auto"
+          }
+        ]
+      },
+      "capture": "10-usdz-animation.png",
+      "animation": {
+        "before": [
+          {
+            "id": "chameleon",
+            "time": 4.184357,
+            "duration": 20.233333587646484
+          },
+          {
+            "id": "biplane",
+            "time": 0.3652980000000001,
+            "duration": 1
+          },
+          {
+            "id": "robot",
+            "time": 0.7834459046325684,
+            "duration": 2.4666666984558105
+          }
+        ],
+        "after": [
+          {
+            "id": "chameleon",
+            "time": 5.758702,
+            "duration": 20.233333587646484
+          },
+          {
+            "id": "biplane",
+            "time": 0.939629,
+            "duration": 1
+          },
+          {
+            "id": "robot",
+            "time": 2.357776904632569,
+            "duration": 2.4666666984558105
+          }
+        ]
+      },
+      "finalErrors": [],
+      "result": "PASS"
+    },
+    {
+      "file": "11-portal-clipping.html",
+      "title": "Clipping at the glass plane",
+      "initial": {
+        "features": {
+          "portal": true,
+          "depth": true,
+          "stage": true,
+          "anchors": true,
+          "area": true,
+          "context": true,
+          "origin": true,
+          "size": true,
+          "alignment": true,
+          "models": true
+        },
+        "assets": {
+          "teapot": {
+            "name": "Teapot",
+            "source": "models/teapot.usdz",
+            "state": "ready",
+            "duration": 0,
+            "bounds": {
+              "center": {
+                "x": 0.021192893385887146,
+                "y": 0.1662251502275467,
+                "z": -1.4901161193847656e-08
+              },
+              "extents": {
+                "x": 0.3338635563850403,
+                "y": 0.3328058421611786,
+                "z": 0.24489863216876984
+              }
+            }
+          }
+        },
+        "errors": [],
+        "motionPaused": false
+      },
+      "styles": {
+        "visible": "visible",
+        "models": [
+          {
+            "id": "teapot",
+            "position": "spatial-absolute",
+            "duration": 0,
+            "paused": true
+          }
+        ],
+        "labels": [],
+        "portal": [
+          {
+            "id": "portal",
+            "spatial": "portal",
+            "stage": "260px 520px 260px 520px / 1000px 0px",
+            "fit": "auto"
+          }
+        ]
+      },
+      "capture": "11-portal-clipping.png",
+      "finalErrors": [],
+      "result": "PASS"
+    },
+    {
+      "file": "12-airshow.html",
+      "title": "Portal airshow: a flight through HTML",
+      "initial": {
+        "features": {
+          "portal": true,
+          "depth": true,
+          "stage": true,
+          "anchors": true,
+          "area": true,
+          "context": true,
+          "origin": true,
+          "size": true,
+          "alignment": true,
+          "models": true
+        },
+        "assets": {
+          "teapot": {
+            "name": "Teapot",
+            "source": "models/teapot.usdz",
+            "state": "ready",
+            "duration": 0,
+            "bounds": {
+              "center": {
+                "x": 0.021192893385887146,
+                "y": 0.1662251502275467,
+                "z": -1.4901161193847656e-08
+              },
+              "extents": {
+                "x": 0.3338635563850403,
+                "y": 0.3328058421611786,
+                "z": 0.24489863216876984
+              }
+            }
+          },
+          "chameleon": {
+            "name": "Animated chameleon",
+            "source": "models/chameleon_anim_mtl_variant.usdz",
+            "state": "ready",
+            "duration": 20.233333587646484,
+            "bounds": {
+              "center": {
+                "x": 0.050795719027519226,
+                "y": 0.020393669605255127,
+                "z": -0.08789628744125366
+              },
+              "extents": {
+                "x": 0.3921293020248413,
+                "y": 0.18023553490638733,
+                "z": 0.5877733826637268
+              }
+            }
+          },
+          "flyer": {
+            "name": "Flying biplane",
+            "source": "models/toy_biplane_realistic.usdz",
+            "state": "ready",
+            "duration": 1,
+            "bounds": {
+              "center": {
+                "x": -0.0004076659679412842,
+                "y": 0.07974861562252045,
+                "z": -0.001344628632068634
+              },
+              "extents": {
+                "x": 0.25421810150146484,
+                "y": 0.10948612540960312,
+                "z": 0.2367212474346161
+              }
+            }
+          }
+        },
+        "errors": [],
+        "motionPaused": false,
+        "flight": {
+          "phase": 0.024688888888888885,
+          "x": 67.98152463404699,
+          "y": -142.85158113511747,
+          "depth": 235.1633339756296,
+          "side": "in front of the sign"
+        }
+      },
+      "styles": {
+        "visible": "visible",
+        "models": [
+          {
+            "id": "teapot",
+            "position": "spatial-absolute",
+            "duration": 0,
+            "paused": true
+          },
+          {
+            "id": "chameleon",
+            "position": "spatial-absolute",
+            "duration": 20.233333587646484,
+            "paused": false
+          },
+          {
+            "id": "flyer",
+            "position": "spatial-absolute",
+            "duration": 1,
+            "paused": false
+          }
+        ],
+        "labels": [
+          {
+            "id": "plane-label",
+            "position": "spatial-absolute",
+            "context": "container",
+            "area": "center top / front"
+          },
+          {
+            "id": "teapot-label",
+            "position": "spatial-absolute",
+            "context": "container",
+            "area": "center top / front"
+          },
+          {
+            "id": "chameleon-label",
+            "position": "spatial-absolute",
+            "context": "container",
+            "area": "center top / front"
+          }
+        ],
+        "portal": [
+          {
+            "id": "portal",
+            "spatial": "portal",
+            "stage": "360px 660px 360px 660px / 1600px 0px",
+            "fit": "auto"
+          }
+        ]
+      },
+      "capture": "12-airshow.png",
+      "occlusion": {
+        "near": {
+          "flight": {
+            "phase": 0,
+            "x": 0,
+            "y": -145,
+            "depth": 230,
+            "side": "in front of the sign"
+          },
+          "picks": {
+            "flyer": 275,
+            "main-sign": 619,
+            "rear-sign": 160,
+            "right-sign": 143,
+            "teapot": 44,
+            "foreground": 290,
+            "chameleon": 10
+          },
+          "capture": "12-airshow-near.png"
+        },
+        "far": {
+          "flight": {
+            "phase": 0.5,
+            "x": 5.388445916248354e-14,
+            "y": -145,
+            "depth": 1090,
+            "side": "behind the sign"
+          },
+          "picks": {
+            "main-sign": 628,
+            "flyer": 66,
+            "rear-sign": 160,
+            "right-sign": 143,
+            "teapot": 43,
+            "foreground": 290,
+            "chameleon": 10
+          },
+          "capture": "12-airshow-far.png"
+        }
+      },
+      "finalErrors": [],
+      "result": "PASS"
+    }
+  ],
+  "errors": [],
+  "indexCapture": "index.png",
+  "result": "PASS"
+}

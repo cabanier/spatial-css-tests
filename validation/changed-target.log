@@ -1,0 +1,17 @@
+
+Traceback (most recent call last):
+  <module> at /home/cabanier/chromium/src/out/release64/spatial_portal_tools/validate_home_spatial_demos.py:16
+    ws = interact._connect(sys.argv[1])
+  wrapper at /home/cabanier/chromium/src/third_party/oculus/bin/interact.py:260
+    return func(*args, **kwargs)
+  _connect at /home/cabanier/chromium/src/third_party/oculus/bin/interact.py:390
+    ws_url = _get_target_ws_url(target_id)
+  _get_target_ws_url at /home/cabanier/chromium/src/third_party/oculus/bin/interact.py:333
+    raise ValueError(f"Target '{_short_id(target_id)}' not found")
+ValueError: Target '232' not found
+
+Locals:
+  matches   : []
+  target_id : '232'
+  targets   : [{'description': '', 'devtoolsFrontendUrl': 'https://chrome-devtools-frontend.appspot.com/serve_rev/@1d17a2e2ee147bb7d6ae2ab6abdb3a2510c17775/inspector.html?ws=127.0.0.1:9222/devtools/page/234', 'id': '234', 'title': 'Test 12 · Portal airshow: a flight through HTML · Spatial CSS', 'type': 'page', 'url': 'https://cabanier.github.io/spatial-css-tests/12-airshow.html', 'webSocketDebuggerUrl': 'ws://127.0.0.1:9222/devtools/page/234'}, {'description': '', 'devtoolsFrontendUrl': 'https://chrome-devtools-frontend.appspot.com/serve_rev/@1d17a2e2ee147bb7d6ae2ab6abdb3a2510c17775/inspector.html?ws=127.0.0.1:9222/devtools/page/2308DB563C9D71ED997BD08D061E8461', 'id': '2308DB563C9D71ED997BD08D061E8461', 'title': 'Browser UI', 'type': 'other', 'url': 'chrome://panel-app-nav/', 'webSocketDebuggerUrl': 'ws://127.0.0.1:9222/devtools/page/2308DB563C9D71ED997BD08D061E8461'}]
+

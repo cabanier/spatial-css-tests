@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="The same HTML motion is labeled in two coordinate systems." />
+    <title>Test 05 · Container axes compared with anchor axes · Spatial CSS</title>
+    <link rel="stylesheet" href="shared/site.css" />
+    <style data-test-css>
+      .subject {
+        width: 240px;
+        height: 150px;
+        top: -60px;
+        inset-front: 290px;
+        animation: tilt 8s ease-in-out infinite alternate;
+      }
+      #container-card {
+        anchor-name: --container-card;
+      }
+      #anchor-card {
+        anchor-name: --anchor-card;
+      }
+      .context-label {
+        position-area: top center / front;
+        bottom: 12px;
+        inset-back: 6px;
+      }
+      #container-label {
+        position-anchor: --container-card;
+        position-context: container;
+      }
+      #anchor-label {
+        position-anchor: --anchor-card;
+        position-context: anchor;
+      }
+      @keyframes tilt {
+        from {
+          transform: rotateY(-45deg) rotateZ(-15deg) scale(0.9);
+        }
+        to {
+          transform: rotateY(45deg) rotateZ(15deg) scale(1.1);
+        }
+      }
+    </style>
+    <script type="module" src="shared/common.js"></script>
+  </head>
+  <body data-test="05" data-needs="portal depth anchors area context">
+    <main>
+      <nav class="topline">
+        <a href="index.html">← All spatial tests</a>
+        <span class="eyebrow">Test 05 / Anchors and layout</span>
+      </nav>
+      <h1>Container axes compared with anchor axes</h1>
+      <p class="intro">
+        The same HTML motion is labeled in two coordinate systems. Watch the two cards tilt, or
+        pause them to compare the label orientations.
+      </p>
+      <div class="features" aria-label="Features under test">
+        <span class="feature">position-context: container</span>
+        <span class="feature">position-context: anchor</span>
+        <span class="feature">Transformed HTML anchors</span>
+      </div>
+      <p class="runtime" data-runtime role="status"></p>
+      <div class="controls" aria-label="Test controls">
+        <button type="button" data-motion>Pause motion</button>
+      </div>
+      <div class="portal-pair">
+        <section class="portal" id="container-portal" aria-label="Container coordinate system">
+          <h2 class="glass">position-context: container</h2>
+          <article class="card subject" id="container-card">
+            <h2>Container axes</h2>
+            <p>My label stays upright.</p>
+          </article>
+          <span class="anchor-label context-label" id="container-label">Container context</span>
+        </section>
+        <section class="portal" id="anchor-portal" aria-label="Anchor coordinate system">
+          <h2 class="glass">position-context: anchor</h2>
+          <article class="card blue subject" id="anchor-card">
+            <h2>Anchor axes</h2>
+            <p>My label moves with me.</p>
+          </article>
+          <span class="anchor-label context-label" id="anchor-label">Anchor context</span>
+        </section>
+      </div>
+
+      <aside class="expectation">
+        <strong>What to look for</strong>
+        <p>
+          The container label stays parallel to the containing volume. The anchor-context label
+          turns and scales with its card.
+        </p>
+      </aside>
+      <details>
+        <summary>CSS under test</summary>
+        <pre><code data-css-source></code></pre>
+      </details>
+      <nav class="footer-nav">
+        <a href="04-model-anchors.html">← Previous test</a>
+        <a href="index.html">Test index</a>
+        <a href="06-origins-and-depth.html">Next test →</a>
+      </nav>
+    </main>
+  </body>
+</html>

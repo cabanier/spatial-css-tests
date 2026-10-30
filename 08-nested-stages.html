@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="A nested portal spins three HTML satellites around a teapot inside the outer portal’s scene." />
+    <title>Test 08 · A spinning nested stage that expands on hover · Spatial CSS</title>
+    <link rel="stylesheet" href="shared/site.css" />
+    <style data-test-css>
+      #portal {
+        height: 550px;
+        portal-stage: 320px 620px / 1600px 0px;
+      }
+      .nested-region {
+        position: spatial-absolute;
+        transform-style: preserve-3d;
+        width: 1060px;
+        height: 550px;
+        inset-front: 460px;
+        border: 1px dashed #91b5c8;
+        border-radius: 24px;
+        background: #ffffff05;
+      }
+      .nested {
+        position: spatial-absolute;
+        spatial: portal;
+        width: 620px;
+        height: 400px;
+        inset-front: 80px;
+        portal-stage: 25cm 40cm / 80cm 0cm;
+        portal-transform: auto;
+        transform-style: preserve-3d;
+        animation: nested-turn 20s linear infinite;
+        border: 2px solid #759ab0;
+        border-radius: 16px;
+      }
+      .satellite {
+        width: 14cm;
+        height: 10cm;
+        padding: 1.5cm;
+        inset-front: 34cm;
+        font-size: 2.2cm;
+        transition: transform 800ms ease-in-out;
+      }
+      .satellite h2 {
+        font-size: 2.4cm;
+        margin-bottom: 0.8cm;
+      }
+      .satellite p {
+        font-size: 1.8cm;
+      }
+      #sat-a {
+        left: -16cm;
+      }
+      #sat-b {
+        left: 8cm;
+        top: -13.856cm;
+      }
+      #sat-c {
+        left: 8cm;
+        top: 13.856cm;
+      }
+      .nested-region:is(:hover, :focus-within) #sat-a {
+        transform: translateX(-30cm);
+      }
+      .nested-region:is(:hover, :focus-within) #sat-b {
+        transform: translate(15cm, -25.981cm);
+      }
+      .nested-region:is(:hover, :focus-within) #sat-c {
+        transform: translate(15cm, 25.981cm);
+      }
+      #teapot {
+        width: 30cm;
+        height: 24cm;
+        inset-front: 42cm;
+      }
+      @keyframes nested-turn {
+        to {
+          transform: rotateZ(1turn) rotateY(20deg);
+        }
+      }
+    </style>
+    <script type="module" src="shared/common.js"></script>
+  </head>
+  <body data-test="08" data-needs="portal depth models stage">
+    <main>
+      <nav class="topline">
+        <a href="index.html">← All spatial tests</a>
+        <span class="eyebrow">Test 08 / Anchors and layout</span>
+      </nav>
+      <h1>A spinning nested stage that expands on hover</h1>
+      <p class="intro">
+        A nested portal spins three HTML satellites around a teapot inside the outer portal’s scene.
+        Hover the fixed dashed region to push each satellite 30 CSS cm farther from the center. Move
+        away to bring them back.
+      </p>
+      <div class="features" aria-label="Features under test">
+        <span class="feature">Nested spatial: portal</span>
+        <span class="feature">Shared outer scene</span>
+        <span class="feature">Hover expansion by 30 CSS cm</span>
+      </div>
+      <p class="runtime" data-runtime role="status"></p>
+      <div class="controls" aria-label="Test controls">
+        <button type="button" data-motion>Pause motion</button>
+      </div>
+      <section
+        class="portal"
+        id="portal"
+        aria-label="Spinning nested portal with expanding HTML satellites">
+        <h2 class="glass">One outer scene · one rotating nested stage</h2>
+        <div
+          class="nested-region"
+          id="nested-region"
+          tabindex="0"
+          aria-label="Hover or focus to expand satellites">
+          <section class="nested" id="nested" aria-label="Nested spatial stage">
+            <article class="card satellite" id="sat-a">
+              <h2>HTML A</h2>
+              <p>Move out 30cm</p>
+            </article>
+            <article class="card blue satellite" id="sat-b">
+              <h2>HTML B</h2>
+              <p>Same nested stage</p>
+            </article>
+            <article class="card amber satellite" id="sat-c">
+              <h2>HTML C</h2>
+              <p>Shared depth</p>
+            </article>
+            <model
+              id="teapot"
+              class="object"
+              src="models/teapot.usdz"
+              stagemode="none"
+              aria-label="Teapot"
+              data-name="Teapot">
+              <span class="fallback">Loading teapot…</span>
+            </model>
+          </section>
+        </div>
+        <p class="glass bottom">
+          cm values are authored CSS units; portal fitting determines their displayed size
+        </p>
+      </section>
+
+      <aside class="expectation">
+        <strong>What to look for</strong>
+        <p>
+          The nested content rotates as one stage and remains in the outer depth scene. The
+          satellites expand while the dashed hover region stays still.
+        </p>
+      </aside>
+      <details>
+        <summary>CSS under test</summary>
+        <pre><code data-css-source></code></pre>
+      </details>
+      <nav class="footer-nav">
+        <a href="07-stage-fit.html">← Previous test</a>
+        <a href="index.html">Test index</a>
+        <a href="09-native-input.html">Next test →</a>
+      </nav>
+    </main>
+  </body>
+</html>

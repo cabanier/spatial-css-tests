@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="The chameleon, biplane, and robot bring their embedded animation into a mixed portal." />
+    <title>Test 10 · Animated USDZ models with HTML attachments · Spatial CSS</title>
+    <link rel="stylesheet" href="shared/site.css" />
+    <style data-test-css>
+      #portal {
+        portal-stage: 280px 620px / 1200px 0px;
+        height: 510px;
+      }
+      #chameleon {
+        anchor-name: --chameleon;
+        left: -385px;
+        top: -130px;
+        inset-front: 420px;
+        width: 370px;
+        height: 300px;
+      }
+      #biplane {
+        anchor-name: --biplane;
+        top: -130px;
+        inset-front: 420px;
+        width: 340px;
+        height: 300px;
+        transform: rotateY(-30deg);
+      }
+      #robot {
+        anchor-name: --robot;
+        left: 385px;
+        top: -130px;
+        inset-front: 420px;
+        width: 300px;
+        height: 320px;
+      }
+      .model-caption {
+        position-area: bottom center / front;
+        top: 18px;
+        inset-back: 6px;
+        width: 175px;
+      }
+      #chameleon-caption {
+        position-anchor: --chameleon;
+      }
+      #biplane-caption {
+        position-anchor: --biplane;
+      }
+      #robot-caption {
+        position-anchor: --robot;
+      }
+    </style>
+    <script type="module" src="shared/common.js"></script>
+  </head>
+  <body data-test="10" data-needs="portal depth models anchors area orbit">
+    <main>
+      <nav class="topline">
+        <a href="index.html">← All spatial tests</a>
+        <span class="eyebrow">Test 10 / Models and motion</span>
+      </nav>
+      <h1>Animated USDZ models with HTML attachments</h1>
+      <p class="intro">
+        The chameleon, biplane, and robot bring their embedded animation into a mixed portal. Pause,
+        resume, change playback speed, or scrub the animation clocks. Compare moving geometry with
+        the attached root labels.
+      </p>
+      <div class="features" aria-label="Features under test">
+        <span class="feature">stagemode: orbit</span>
+        <span class="feature">USDZ scene loading</span>
+        <span class="feature">Embedded model animation</span>
+        <span class="feature">Root-bound HTML anchors</span>
+      </div>
+      <p class="runtime" data-runtime role="status"></p>
+      <p class="orbit-hint">Drag a stationary model to orbit it.</p>
+      <div class="controls" aria-label="Test controls">
+        <button type="button" data-motion>Pause motion</button>
+        <label>
+          Playback speed
+          <input id="speed" type="range" min="0.25" max="2" step="0.25" value="1" />
+          <output for="speed">1×</output>
+        </label>
+        <label>
+          Scrub
+          <input id="scrub" type="range" min="0" max="100" value="0" />
+          <output for="scrub">0%</output>
+        </label>
+      </div>
+      <section
+        class="portal"
+        id="portal"
+        aria-label="Three animated USDZ assets mixed with HTML labels">
+        <h2 class="glass">Native animation, native model bounds, ordinary HTML labels</h2>
+        <model
+          id="chameleon"
+          class="object"
+          src="models/chameleon_anim_mtl_variant.usdz"
+          stagemode="orbit"
+          aria-label="Animated chameleon"
+          data-name="Animated chameleon"
+          autoplay
+          loop
+          data-autoplay="true"
+          title="Drag to orbit">
+          <span class="fallback">Loading animated chameleon…</span>
+        </model>
+        <model
+          id="biplane"
+          class="object"
+          src="models/toy_biplane_realistic.usdz"
+          stagemode="orbit"
+          aria-label="Animated biplane"
+          data-name="Animated biplane"
+          autoplay
+          loop
+          data-autoplay="true"
+          title="Drag to orbit">
+          <span class="fallback">Loading animated biplane…</span>
+        </model>
+        <model
+          id="robot"
+          class="object"
+          src="models/robot.usdz"
+          stagemode="orbit"
+          aria-label="Animated robot"
+          data-name="Animated robot"
+          autoplay
+          loop
+          data-autoplay="true"
+          title="Drag to orbit">
+          <span class="fallback">Loading animated robot…</span>
+        </model>
+        <span class="anchor-label model-caption" id="chameleon-caption">Chameleon root</span>
+        <span class="anchor-label model-caption" id="biplane-caption">Biplane root</span>
+        <span class="anchor-label model-caption" id="robot-caption">Robot root</span>
+        <p class="glass bottom">The USDZ-selected materials load with each scene</p>
+      </section>
+      <p class="readout" id="animation-clocks"></p>
+      <aside class="expectation">
+        <strong>What to look for</strong>
+        <p>
+          All three native assets animate and occlude HTML normally. Labels use each model’s root
+          bounds rather than individual animated bones or nodes.
+        </p>
+      </aside>
+      <details>
+        <summary>CSS under test</summary>
+        <pre><code data-css-source></code></pre>
+      </details>
+      <nav class="footer-nav">
+        <a href="09-native-input.html">← Previous test</a>
+        <a href="index.html">Test index</a>
+        <a href="11-portal-clipping.html">Next test →</a>
+      </nav>
+    </main>
+    <script type="module">
+      import {
+        $,
+        watchRange,
+        modelsReady,
+        setPaused,
+        isPaused,
+        onMotionChange,
+      } from './shared/common.js';
+      const animated = [...document.querySelectorAll('model')];
+      watchRange(
+        'speed',
+        value => {
+          for (const item of animated) {
+            if ('playbackRate' in item) {
+              item.playbackRate = value;
+            }
+          }
+        },
+        '×',
+      );
+      $('scrub').addEventListener('input', event => {
+        setPaused(true);
+        document.querySelector('output[for="scrub"]').value = `${event.target.value}%`;
+        for (const item of animated) {
+          if (item.duration > 0) {
+            item.currentTime = (item.duration * Number(event.target.value)) / 100;
+          }
+        }
+      });
+      const timer = setInterval(() => {
+        $('animation-clocks').textContent = animated
+          .filter(item => 'duration' in item)
+          .map(
+            item =>
+              `${item.dataset.name}: ${item.currentTime.toFixed(1)} / ${item.duration.toFixed(1)}s`,
+          )
+          .join(' · ');
+      }, 500);
+      addEventListener('pagehide', () => clearInterval(timer), {once: true});
+    </script>
+  </body>
+</html>

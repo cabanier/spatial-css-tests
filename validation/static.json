@@ -1,0 +1,19 @@
+{
+  "result": "PASS",
+  "htmlPages": 13,
+  "labeledTests": 12,
+  "inlineModuleScripts": 7,
+  "orbitModels": 13,
+  "animatedSceneModels": 2,
+  "assets": 4,
+  "checks": [
+    "HTML structure",
+    "unique IDs",
+    "local links/assets",
+    "feature labels",
+    "JavaScript syntax",
+    "asset SHA-256",
+    "served-byte equality",
+    "native orbit markup"
+  ]
+}

@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="A tilted card and a teapot intersect the page’s glass plane." />
+    <title>Test 11 · Clipping at the glass plane · Spatial CSS</title>
+    <link rel="stylesheet" href="shared/site.css" />
+    <style data-test-css>
+      #cut-card {
+        left: -230px;
+        inset-front: 10px;
+        width: 380px;
+        height: 220px;
+        transform: rotateY(58deg);
+      }
+      #teapot {
+        left: 220px;
+        inset-front: -75px;
+        width: 310px;
+        height: 260px;
+        transform: rotateY(25deg);
+      }
+      #back-card {
+        left: 220px;
+        top: -170px;
+        inset-front: 760px;
+        width: 250px;
+        height: 100px;
+        padding: 12px;
+      }
+    </style>
+    <script type="module" src="shared/common.js"></script>
+  </head>
+  <body data-test="11" data-needs="portal depth models orbit">
+    <main>
+      <nav class="topline">
+        <a href="index.html">← All spatial tests</a>
+        <span class="eyebrow">Test 11 / Portal basics</span>
+      </nav>
+      <h1>Clipping at the glass plane</h1>
+      <p class="intro">
+        A tilted card and a teapot intersect the page’s glass plane. Slide the teapot toward the
+        glass. Inspect the clean cut where HTML or model geometry would extend in front of the page.
+      </p>
+      <div class="features" aria-label="Features under test">
+        <span class="feature">stagemode: orbit</span>
+        <span class="feature">Back boundary at z ≤ 0</span>
+        <span class="feature">Tilted HTML planes</span>
+        <span class="feature">Mesh / aperture clipping</span>
+      </div>
+      <p class="runtime" data-runtime role="status"></p>
+      <p class="orbit-hint">Drag a stationary model to orbit it.</p>
+      <div class="controls" aria-label="Test controls">
+        <label>
+          Teapot depth
+          <input id="depth" type="range" min="-250" max="350" value="-75" />
+          <output for="depth">-75px</output>
+        </label>
+      </div>
+      <section
+        class="portal"
+        id="portal"
+        aria-label="HTML and a model clipped by the front portal boundary">
+        <h2 class="glass">The glass is a clipping boundary</h2>
+        <article class="card amber" id="cut-card">
+          <h2>Tilted through the glass</h2>
+          <p>The front half is clipped.</p>
+          <p>rotateY(58deg)</p>
+        </article>
+        <model
+          id="teapot"
+          class="object"
+          src="models/teapot.usdz"
+          stagemode="orbit"
+          aria-label="Teapot"
+          data-name="Teapot"
+          title="Drag to orbit">
+          <span class="fallback">Loading teapot…</span>
+        </model>
+        <article class="card blue" id="back-card">
+          <strong>Safely behind the glass</strong>
+          <p>This HTML stays visible.</p>
+        </article>
+        <p class="glass bottom">No front context is created by geometry crossing the glass</p>
+      </section>
+
+      <aside class="expectation">
+        <strong>What to look for</strong>
+        <p>
+          Only the portion behind the glass is rendered. The card’s shadow and model geometry follow
+          the same boundary.
+        </p>
+      </aside>
+      <details>
+        <summary>CSS under test</summary>
+        <pre><code data-css-source></code></pre>
+      </details>
+      <nav class="footer-nav">
+        <a href="10-usdz-animation.html">← Previous test</a>
+        <a href="index.html">Test index</a>
+        <a href="12-airshow.html">Next test →</a>
+      </nav>
+    </main>
+    <script type="module">
+      import {
+        $,
+        watchRange,
+        modelsReady,
+        setPaused,
+        isPaused,
+        onMotionChange,
+      } from './shared/common.js';
+      watchRange(
+        'depth',
+        value => $('teapot').style.setProperty('inset-front', `${value}px`),
+        'px',
+      );
+    </script>
+  </body>
+</html>
